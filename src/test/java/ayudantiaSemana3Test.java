@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-class ayudantiasemana3ExtremeTest {
+class ayudantiasemana3Test {
 
     @Test
     void pruebaCalcularPromedioConNotasCero() {
