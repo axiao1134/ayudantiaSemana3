@@ -1,4 +1,4 @@
-public class ayudantiaSemana4 {
+class ayudantiasemana3 {
     public static void main(String[] args) {
         String textoOriginal="aaaaa aaaaa";
         System.out.println(palindromo(textoOriginal));
