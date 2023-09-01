@@ -1,17 +1,17 @@
 class ayudantiasemana3 {
     public static void main(String[] args) {
-        double[] nota1={6.0,5.5,6.4,6.2,5.9};
-        System.out.println(calcularPromedio(nota1));
 
     }
-    public static double calcularPromedio(double [] notas) {
-        double [] ponderacionNotas = {0.25, 0.25, 0.25, 0.15, 0.10};
-        double promedio = 0;
-        for (int i = 0; i < notas.length; i++) {
-            promedio += (notas[i] * ponderacionNotas[i]);
+    private static String metodo3(int [] puntajes) {
+        int jugador1 = 20 - puntajes[0];
+        int jugador2 = 20 - puntajes[1];
+        if((jugador1 < 0 && jugador2 < 0) || jugador1 == jugador2) {
+            return "Empate.";
+        } else if((jugador1 < 0 || jugador2 < jugador1) && jugador2 >= 0) {
+            return "Jugador 2 ganó.";
+        } else {
+            return "Jugador 1 ganó.";
         }
-        return promedio;
     }
-
 
 }
