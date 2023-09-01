@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +10,20 @@ class ayudantiasemana3Test {
     }
 
     @Test
-    void juegoPuntajeTest() {
-        int[] puntajes={12,13};
-        String  resultadoEsperado="Jugador 2 ganó.";
-        Assertions.assertEquals(ayudantiasemana3.juegoPuntaje(puntajes),resultadoEsperado);
+    void matrizTraspuestaTest() {
+        int[][] matrizOriginal = {
+                {1, 2, 3},
+                {4, 5, 6}
+        };
+        int[][] matrizEsperada = {
+                {1, 4},
+                {2, 5},
+                {3, 6}
+        };
+        int [][] resultado=ayudantiasemana3.matrizTraspuesta(matrizOriginal);
+
+        assertArrayEquals(matrizEsperada,resultado);
+
 
     }
 }

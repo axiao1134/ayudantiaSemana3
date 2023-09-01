@@ -1,17 +1,16 @@
 class ayudantiasemana3 {
     public static void main(String[] args) {
-
     }
-    public static String juegoPuntaje(int [] puntajes) {
-        int jugador1 = 20 - puntajes[0];
-        int jugador2 = 20 - puntajes[1];
-        if((jugador1 < 0 && jugador2 < 0) || jugador1 == jugador2) {
-            return "Empate.";
-        } else if((jugador2 < jugador1) && jugador2 >= 0) {
-            return "Jugador 2 ganó.";
-        } else {
-            return "Jugador 1 ganó.";
+
+
+    public static int[][] matrizTraspuesta(int[][] matrizOriginal) {
+        int[][] t = new int[matrizOriginal[0].length][matrizOriginal.length];
+        for (int i = 0; i < matrizOriginal.length; i++) {
+            for (int j = 0; j < matrizOriginal[i].length; j++) {
+                t[j][i] = matrizOriginal[i][j];
+            }
         }
+        return t;
     }
 
 }
