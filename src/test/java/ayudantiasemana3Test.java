@@ -10,20 +10,14 @@ class ayudantiasemana3Test {
     }
 
     @Test
-    void matrizTraspuestaTest() {
-        int[][] matrizOriginal = {
-                {1, 2, 3},
-                {4, 5, 6}
-        };
-        int[][] matrizEsperada = {
-                {1, 4},
-                {2, 5},
-                {3, 6}
-        };
-        int [][] resultado=ayudantiasemana3.matrizTraspuesta(matrizOriginal);
-
-        assertArrayEquals(matrizEsperada,resultado);
-
-
+    void palabraVisibleSinNumero() {
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("HolaMundo")); // Cadena sin números
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("Texto sin números.")); // Cadena sin números y con signos de puntuación
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("12345")); // Cadena que contiene solo números
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("123 456")); // Cadena que contiene números y espacios
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("")); // Cadena vacía
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("   ")); // Cadena con espacios en blanco
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("Año 2023")); // Cadena que contiene números y letras
     }
+
 }

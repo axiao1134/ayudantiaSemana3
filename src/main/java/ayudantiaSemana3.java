@@ -3,14 +3,13 @@ class ayudantiasemana3 {
     }
 
 
-    public static int[][] matrizTraspuesta(int[][] matrizOriginal) {
-        int[][] t = new int[matrizOriginal[0].length][matrizOriginal.length];
-        for (int i = 0; i < matrizOriginal.length; i++) {
-            for (int j = 0; j < matrizOriginal[i].length; j++) {
-                t[j][i] = matrizOriginal[i][j];
+    public static boolean palabraVisibleSinNumero(String palabraIngresada) {
+        for (int i = 0; i < palabraIngresada.length(); i++) {
+            if (Character.isDigit(palabraIngresada.charAt(i)) ||
+                    palabraIngresada.isBlank()) {
+                return false;
             }
         }
-        return t;
+        return true;
     }
-
 }
