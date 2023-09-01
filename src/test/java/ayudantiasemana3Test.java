@@ -11,13 +11,13 @@ class ayudantiasemana3Test {
 
     @Test
     void palabraVisibleSinNumero() {
-        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("HolaMundo")); // Cadena sin números
-        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("Texto sin números.")); // Cadena sin números y con signos de puntuación
-        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("12345")); // Cadena que contiene solo números
-        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("123 456")); // Cadena que contiene números y espacios
-        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("")); // Cadena vacía
-        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("   ")); // Cadena con espacios en blanco
-        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("Año 2023")); // Cadena que contiene números y letras
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("HolaMundo"));
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero("Texto sin números."));
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("12345"));
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("123 456"));
+        assertTrue(ayudantiasemana3.palabraVisibleSinNumero(""));
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("   "));
+        assertFalse(ayudantiasemana3.palabraVisibleSinNumero("Año 2023"));
     }
 
 }
