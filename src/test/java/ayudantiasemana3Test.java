@@ -12,13 +12,13 @@ class ayudantiasemana3Test {
     @Test
     void matrizTraspuestaTest() {
         int[][] matrizOriginal = {
-                {1, 2, 3},
+                {1, 2, 7},
                 {4, 5, 6}
         };
         int[][] matrizEsperada = {
                 {1, 4},
                 {2, 5},
-                {3, 6}
+                {7, 6}
         };
         int [][] resultado=ayudantiasemana3.matrizTraspuesta(matrizOriginal);
 
