@@ -5,12 +5,6 @@ class AyudantiaSemana3 {
         int[][] matrizTemperatura = new int[7][24];
         matrizTemperatura = crearTemperaturaAleatoria(matrizTemperatura);
 
-        for (int dia = 0; dia < 7; dia++) {
-            for (int hora = 0; hora < 24; hora++) {
-                System.out.print(matrizTemperatura[dia][hora] + " ");
-            }
-            System.out.println();
-        }
     }
 
     public static int[][] crearTemperaturaAleatoria(int[][] matrizTemperatura) {
