@@ -12,48 +12,46 @@ class AyudantiaSemana3 {
         Random ran = new Random();
 
         for (int dia = 0; dia < 7; dia++) {
-            for (int hora = 0; hora <24; hora++) {
+            for (int hora = 0; hora < 24; hora++) {
                 matrizTemperatura[dia][hora] = ran.nextInt(temMax - temMin + 1) + temMin;
             }
         }
 
         return matrizTemperatura;
     }
-    public static int diaMasCaluroso(int[][] matrixTemperatura){
-        int elDiaMasCaluroso=0;
-        int elGradoCelsiu=0;
+
+    public static int diaMasCaluroso(int[][] matrixTemperatura) {
+        int elDiaMasCaluroso = 0;
+        int elGradoCelsiu = 0;
         for (int dia = 0; dia < 7; dia++) {
-            for (int hora = 0; hora <24; hora++) {
-                int diaYHora= matrixTemperatura[dia][hora];
-                if (elGradoCelsiu<diaYHora){
-                    elGradoCelsiu=matrixTemperatura[dia][hora];
-                    elDiaMasCaluroso=dia+1;
-
+            for (int hora = 0; hora < 24; hora++) {
+                int diaYHora = matrixTemperatura[dia][hora];
+                if (elGradoCelsiu < diaYHora) {
+                    elGradoCelsiu = matrixTemperatura[dia][hora];
+                    elDiaMasCaluroso = dia + 1;
                 }
-
             }
         }
 
-    return elDiaMasCaluroso;
+        return elDiaMasCaluroso;
     }
-    public static int diaMasFrio(int[][] matrixTemperatura){
-        int elDiaMasFrio=0;
-        int elGradoCelsiu=50;
+
+    public static int diaMasFrio(int[][] matrixTemperatura) {
+        int elDiaMasFrio = 0;
+        int elGradoCelsiu = 50;
         for (int dia = 0; dia < 7; dia++) {
-            for (int hora = 0; hora <24; hora++) {
-                int diaYHora= matrixTemperatura[dia][hora];
-                if (elGradoCelsiu>diaYHora){
-                    elGradoCelsiu=matrixTemperatura[dia][hora];
-                    elDiaMasFrio=dia+1;
-
+            for (int hora = 0; hora < 24; hora++) {
+                int diaYHora = matrixTemperatura[dia][hora];
+                if (elGradoCelsiu > diaYHora) {
+                    elGradoCelsiu = matrixTemperatura[dia][hora];
+                    elDiaMasFrio = dia + 1;
                 }
-
             }
         }
 
         return elDiaMasFrio;
-
     }
+
     public static int[] horaYDiaTemperaturaMasBaja(int[][] matrizTemperatura) {
         int diaMasFrio = 0;
         int horaMasFria = 0;
@@ -70,9 +68,10 @@ class AyudantiaSemana3 {
             }
         }
 
-        int[] horaYDiaMasFrio = {horaMasFria, diaMasFrio};
+        int[] horaYDiaMasFrio = { horaMasFria, diaMasFrio };
         return horaYDiaMasFrio;
     }
+
     public static int[] horaYDiaTemperaturaMasAlta(int[][] matrizTemperatura) {
         int diaMasCaluroso = 0;
         int horaMasCalurosa = 0;
@@ -89,10 +88,10 @@ class AyudantiaSemana3 {
             }
         }
 
-        int[] horaYDiaMasCaluroso = {horaMasCalurosa, diaMasCaluroso};
+        int[] horaYDiaMasCaluroso = { horaMasCalurosa, diaMasCaluroso };
         return horaYDiaMasCaluroso;
-
     }
+
     public static double[] promedioTemperaturaDiaria(int[][] matrizTemperatura) {
         double[] promediosDiarios = new double[7];
 
@@ -106,6 +105,7 @@ class AyudantiaSemana3 {
 
         return promediosDiarios;
     }
+
     public static double promedioTemperaturaSemana(int[][] matrizTemperatura) {
         int sumaTemperaturas = 0;
         int totalElementos = 0;
@@ -117,12 +117,11 @@ class AyudantiaSemana3 {
             }
         }
 
-
-
         double promedioTemperatura = (double) sumaTemperaturas / totalElementos;
         return promedioTemperatura;
     }
-    public static void menu(){
+
+    public static void menu() {
         int[][] matrizTemperatura = new int[7][24];
         matrizTemperatura = crearTemperaturaAleatoria(matrizTemperatura);
         Scanner scan = new Scanner(System.in);
@@ -135,18 +134,20 @@ class AyudantiaSemana3 {
         System.out.println("5-Promedio de la temperatura en la semana");
         System.out.println("6-salir");
         System.out.println("-----------------------------------------------------------");
-        System.out.println("ingrse una opcion:");
-        int opcion = scan.nextInt();
+
         while (!salir) {
-            System.out.println("1-Mostrar día más caluroso");
-            System.out.println("2-Mostrar día más frío.");
-            System.out.println("3-Mostrar hora y día de la temperatura más baja");
-            System.out.println("4-Mostrar hora y día de la temperatura más alta");
-            System.out.println("5-Promedio de la temperatura en la semana");
-            System.out.println("6-Salir");
-            System.out.println("-----------------------------------------------------------");
-            System.out.println("Ingrese una opción:");
-            int opcion1 = scan.nextInt();
+            int opcion1 = 0; // Inicializamos la variable con un valor por defecto
+
+            while (true) {
+                try {
+                    System.out.println("Ingrese una opción:");
+                    opcion1 = scan.nextInt();
+                    break; // Salir del bucle si se ingresó un número válido
+                } catch (java.util.InputMismatchException e) {
+                    System.out.println("Error: Ingresa un número válido.");
+                    scan.nextLine(); // Limpiar el búfer de entrada
+                }
+            }
 
             switch (opcion1) {
                 case 1:
