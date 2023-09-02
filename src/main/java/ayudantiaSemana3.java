@@ -17,6 +17,11 @@ class AyudantiaSemana3 {
         int horaMasCalurosa = horaYDiaMasCaluroso[0];
 
         System.out.println("La hora más calurosa fue a las " + horaMasCalurosa + ":00 horas en el día " + diaMasCaluroso);
+
+        double promedioSemana = promedioTemperaturaSemana(matrizTemperatura);
+
+        System.out.println("El promedio de temperatura en la semana es: " + promedioSemana+"°C");
+
     }
 
     public static int[][] crearTemperaturaAleatoria(int[][] matrizTemperatura) {
@@ -106,4 +111,34 @@ class AyudantiaSemana3 {
         return horaYDiaMasCaluroso;
 
     }
+    public static double[] promedioTemperaturaDiaria(int[][] matrizTemperatura) {
+        double[] promediosDiarios = new double[7];
+
+        for (int dia = 0; dia < matrizTemperatura.length; dia++) {
+            int sumaTemperaturasDiarias = 0;
+            for (int hora = 0; hora < matrizTemperatura[dia].length; hora++) {
+                sumaTemperaturasDiarias += matrizTemperatura[dia][hora];
+            }
+            promediosDiarios[dia] = (double) sumaTemperaturasDiarias / matrizTemperatura[dia].length;
+        }
+
+        return promediosDiarios;
+    }
+    public static double promedioTemperaturaSemana(int[][] matrizTemperatura) {
+        int sumaTemperaturas = 0;
+        int totalElementos = 0;
+
+        for (int dia = 0; dia < matrizTemperatura.length; dia++) {
+            for (int hora = 0; hora < matrizTemperatura[dia].length; hora++) {
+                sumaTemperaturas += matrizTemperatura[dia][hora];
+                totalElementos++;
+            }
+        }
+
+
+
+        double promedioTemperatura = (double) sumaTemperaturas / totalElementos;
+        return promedioTemperatura;
+    }
+
 }
