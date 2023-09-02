@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-class AyudantiaSemana3 {
+public class ayudantiaSemana3 {
     public static void main(String[] args) {
         menu();
     }
@@ -126,16 +126,17 @@ class AyudantiaSemana3 {
         matrizTemperatura = crearTemperaturaAleatoria(matrizTemperatura);
         Scanner scan = new Scanner(System.in);
         boolean salir = false;
-        System.out.println("-----------------------------------------------------------");
-        System.out.println("1-Mostrar día más caluroso");
-        System.out.println("2-Mostrar día más frío.");
-        System.out.println("3-Mostrar hora y día de la temperatura más baja");
-        System.out.println("4-Mostrar hora y día de la temperatura más alta");
-        System.out.println("5-Promedio de la temperatura en la semana");
-        System.out.println("6-salir");
-        System.out.println("-----------------------------------------------------------");
 
         while (!salir) {
+            System.out.println("-----------------------------------------------------------");
+            System.out.println("1-Mostrar día más caluroso");
+            System.out.println("2-Mostrar día más frío.");
+            System.out.println("3-Mostrar hora y día de la temperatura más baja");
+            System.out.println("4-Mostrar hora y día de la temperatura más alta");
+            System.out.println("5-Promedio de la temperatura en la semana");
+            System.out.println("6-Salir");
+            System.out.println("-----------------------------------------------------------");
+
             int opcion1 = 0; // Inicializamos la variable con un valor por defecto
 
             while (true) {
@@ -162,13 +163,15 @@ class AyudantiaSemana3 {
                     int[] horaYDiaMasFrio = horaYDiaTemperaturaMasBaja(matrizTemperatura);
                     int horaMasFria = horaYDiaMasFrio[0];
                     int diaMasFrioCase3 = horaYDiaMasFrio[1];
-                    System.out.println("La hora más fría fue a las " + horaMasFria + ":00 horas en el día " + diaMasFrioCase3);
+                    System.out.println(
+                            "La hora más fría fue a las " + horaMasFria + ":00 horas en el día " + diaMasFrioCase3);
                     break;
                 case 4:
                     int[] horaYDiaMasCaluroso = horaYDiaTemperaturaMasAlta(matrizTemperatura);
                     int horaMasCalurosa = horaYDiaMasCaluroso[0];
                     int diaMasCalurosoCase4 = horaYDiaMasCaluroso[1];
-                    System.out.println("La hora más calurosa fue a las " + horaMasCalurosa + ":00 horas en el día " + diaMasCalurosoCase4);
+                    System.out.println(
+                            "La hora más calurosa fue a las " + horaMasCalurosa + ":00 horas en el día " + diaMasCalurosoCase4);
                     break;
                 case 5:
                     double promedioSemana = promedioTemperaturaSemana(matrizTemperatura);
