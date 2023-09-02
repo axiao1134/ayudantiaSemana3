@@ -1,27 +1,9 @@
 import java.util.Random;
+import java.util.Scanner;
 
 class AyudantiaSemana3 {
     public static void main(String[] args) {
-        int[][] matrizTemperatura = new int[7][24];
-        matrizTemperatura = crearTemperaturaAleatoria(matrizTemperatura);
-        int diaMasCaluroso = diaMasCaluroso(matrizTemperatura);
-        int diaMasFrio = diaMasFrio(matrizTemperatura);
-
-        System.out.println("El día más caluroso fue el día " + diaMasCaluroso);
-        System.out.println("El día más frío fue el día " + diaMasFrio);
-        int[] horaYDiaMasFrio = horaYDiaTemperaturaMasBaja(matrizTemperatura);
-        int horaMasFria = horaYDiaMasFrio[0];
-
-        System.out.println("La hora más fría fue a las " + horaMasFria + ":00 horas en el día " + diaMasFrio);
-        int[] horaYDiaMasCaluroso = horaYDiaTemperaturaMasAlta(matrizTemperatura);
-        int horaMasCalurosa = horaYDiaMasCaluroso[0];
-
-        System.out.println("La hora más calurosa fue a las " + horaMasCalurosa + ":00 horas en el día " + diaMasCaluroso);
-
-        double promedioSemana = promedioTemperaturaSemana(matrizTemperatura);
-
-        System.out.println("El promedio de temperatura en la semana es: " + promedioSemana+"°C");
-
+        menu();
     }
 
     public static int[][] crearTemperaturaAleatoria(int[][] matrizTemperatura) {
@@ -139,6 +121,53 @@ class AyudantiaSemana3 {
 
         double promedioTemperatura = (double) sumaTemperaturas / totalElementos;
         return promedioTemperatura;
+    }
+    public static void menu(){
+        int[][] matrizTemperatura = new int[7][24];
+        matrizTemperatura = crearTemperaturaAleatoria(matrizTemperatura);
+        Scanner scan = new Scanner(System.in);
+        System.out.println("1-Mostrar día más caluroso");
+        System.out.println("2-Mostrar día más frío.");
+        System.out.println("3-Mostrar hora y día de la temperatura más baja");
+        System.out.println("4-Mostrar hora y día de la temperatura más alta");
+        System.out.println("5-Promedio de la temperatura en la semana");
+        System.out.println("6-salir");
+        System.out.println("-----------------------------------------------------------");
+        System.out.println("ingrse una opcion:");
+        int opcion = scan.nextInt();
+        while(true){
+            switch (opcion) {
+                case 1:
+                    int diaMasCaluroso = diaMasCaluroso(matrizTemperatura);
+                    System.out.println("El día más caluroso fue el día " + diaMasCaluroso);
+                case 2:
+                    int diaMasFrio = diaMasFrio(matrizTemperatura);
+                    System.out.println("El día más frío fue el día " + diaMasFrio);
+
+                case 3:
+                    int diaMasFrioCase3 = diaMasFrio(matrizTemperatura);
+                    int[] horaYDiaMasFrio = horaYDiaTemperaturaMasBaja(matrizTemperatura);
+                    int horaMasFria = horaYDiaMasFrio[0];
+
+                    System.out.println("La hora más fría fue a las " + horaMasFria + ":00 horas en el día " + diaMasFrioCase3);
+                case 4:
+                    int diaMasCalurosoCase4 = diaMasCaluroso(matrizTemperatura);
+                    int[] horaYDiaMasCaluroso = horaYDiaTemperaturaMasAlta(matrizTemperatura);
+                    int horaMasCalurosa = horaYDiaMasCaluroso[0];
+
+                    System.out.println("La hora más calurosa fue a las " + horaMasCalurosa + ":00 horas en el día " + diaMasCalurosoCase4);
+                case 5:
+                    double promedioSemana = promedioTemperaturaSemana(matrizTemperatura);
+                    System.out.println("El promedio de temperatura en la semana es: " + promedioSemana+"°C");
+                case 6:
+                    System.out.println("adios");
+                    break;
+                default:
+                    opcion = scan.nextInt();
+            }
+        }
+
+
     }
 
 }
